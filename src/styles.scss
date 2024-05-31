@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: hsl(215, 28%, 17%);
+  --cl-title: hsl(0, 0%, 100%);
+
+  //Size
+  --sz-title: clamp(2rem, 1.3043rem + 3.4783vi, 4rem);
+}
+
+body {
+  --bg: #fff1;
+  --size: 42px;
+  --horizontal: repeating-linear-gradient(var(--bg) 0 1px, transparent 1px var(--size));
+  --vertical: repeating-linear-gradient(to right, var(--bg) 0 1px, transparent 1px var(--size));
+  background-color: var(--bg-dark);
+  background-image: radial-gradient(circle, transparent, var(--bg-dark)), var(--horizontal), var(--vertical);
+  background-color: var(--bg-dark);
+  padding-block-end: 4rem;
+}
+
+/**** Utilities ****/
+.wrapper {
+  --boxed-size: 90rem;
+  --boxed: max(calc((100vw - var(--boxed-size)) / 2), 1.25rem);
+  padding-inline: var(--boxed);
+}
+
+.flow > * + * {
+  margin-block-end: var(--flow, 1rem);
+}
+
+.banner {
+  min-height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: var(--cl-title);
+  font-size: var(--sz-title);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.float {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+
+/**** CSS ****/
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  gap: 3rem;
+}
